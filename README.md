@@ -65,5 +65,3 @@ successfully.
 
 - https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/
 - https://support.atlassian.com/bitbucket-cloud/docs/configure-your-first-pipeline/
-
-

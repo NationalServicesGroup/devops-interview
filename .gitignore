@@ -12,6 +12,7 @@ dist/
 
 # Python virtualenv
 .venv
+.ruff_cache
 
 # Log files
 *.log

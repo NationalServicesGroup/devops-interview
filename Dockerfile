@@ -1,17 +1,23 @@
 # Use the latest Ubuntu image as the base
-FROM ubuntu:latest
+FROM python:3.12.4-alpine
 
 # Install Python and other dependencies
-RUN apt-get update && apt-get install -y python3 python3-pip
+# Install dependencies
+RUN apk update && apk upgrade
 
 # Set the working directory
 WORKDIR /app
 
-# TODO: Copy the current directory contents into the container at /app
+# TODO: Copy the app directory contents into the container at /app
 
 # TODO: Install Python dependencies
+# NOTE: This isn't working
+COPY requirements.txt /requirements.txt
+RUN apk add --no-cache --virtual .build-deps \
+    gcc musl-dev linux-headers && \
+    pip install --no-cache-dir -r requirements.txt && \
+    apk del .build-deps
 
 # TODO: Expose the port the app runs on
 
 # TODO: Define the entrypoint for the app
-

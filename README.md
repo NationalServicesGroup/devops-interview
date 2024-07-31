@@ -74,3 +74,4 @@ successfully.
 - https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/
 - https://support.atlassian.com/bitbucket-cloud/docs/configure-your-first-pipeline/
 - https://bitbucket.org/blog/bitbucket-pipelines-can-count-builds-numbered
+- https://hub.docker.com/r/atlassian/default-image/

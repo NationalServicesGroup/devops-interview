@@ -1,4 +1,4 @@
-
+set dotenv-load := true
 
 black   := `tput -Txterm setaf 0`
 red     := `tput -Txterm setaf 1`
@@ -44,9 +44,17 @@ reset   := `tput -Txterm sgr0`
 # B U I L D / D E P L O Y
 # ----------------------------------------------------------------------------
 
-@build:
+@docker_login:
+    just _start_msg "Logging into docker hub"
+    echo $DOCKER_HUB_KEY | docker login -u $DOCKER_HUB_USER --password-stdin
+
+@docker_build:
     just _start_msg "Starting build of docker container"
-    docker build -t nsg-base-django:dev .
+    docker build -t nsg-test-django:dev -t ${DOCKER_HUB_USER}/nsg-test-django:$BITBUCKET_BUILD_NUMBER .
+
+@docker_push:
+    just _start_msg "Pushing built docker image"
+    docker push ${DOCKER_HUB_USER}/nsg-test-django:$BITBUCKET_BUILD_NUMBER
 
 # ----------------------------------------------------------------------------
 # S E T U P

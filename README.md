@@ -14,8 +14,16 @@ able completed within 1 hour.
 
 ## Step 1: Setting Up the Docker Container
 
+Some background information for this part of the project.  The user information
+for logging into docker hub is:
 
+```shell
+DOCKER_HUB_USER=willfifensg
+DOCKER_HUB_KEY=dckr_pat_<rest of key>
+```
 
+Versioning of docker images can be done with the `BITBUCKET_BUILD_NUMBER`
+environment variable that is unique across all branches.
 
 ### Create a requirements.txt File
 
@@ -65,3 +73,4 @@ successfully.
 
 - https://support.atlassian.com/bitbucket-cloud/docs/get-started-with-bitbucket-pipelines/
 - https://support.atlassian.com/bitbucket-cloud/docs/configure-your-first-pipeline/
+- https://bitbucket.org/blog/bitbucket-pipelines-can-count-builds-numbered

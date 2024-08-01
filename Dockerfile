@@ -9,7 +9,7 @@ RUN apk update && apk upgrade
 WORKDIR /app
 
 # TODO: Copy the app directory contents into the container at /app
-
+COPY app/* ./
 # TODO: Install Python dependencies
 # NOTE: This isn't working
 COPY requirements.txt /requirements.txt
@@ -19,5 +19,7 @@ RUN apk add --no-cache --virtual .build-deps \
     apk del .build-deps
 
 # TODO: Expose the port the app runs on
-
+EXPOSE 8000
 # TODO: Define the entrypoint for the app
+
+ENTRYPOINT ["python","manage.py","runserver" ]

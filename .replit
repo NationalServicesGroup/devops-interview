@@ -1,0 +1,4 @@
+modules = ["python-3.12", "bash", "nix", "docker"]
+
+[nix]
+channel = "stable-24_05"
